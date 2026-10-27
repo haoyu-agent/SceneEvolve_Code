@@ -1,0 +1,19 @@
+Your task is to improve the harness for the SceneAct single-image indoor reconstruction benchmark. The model is fixed as Qwen3.8-27B xhigh.
+
+Each candidate in this round has been cloned from the current best-performing harness. Please propose two distinct and generalizable candidates.
+You may modify the entire Python harness within the designated candidate directory. This includes adding or refactoring Python modules, as well as adjusting planning phases, model invocations, error handling, post-rendering corrections, prompts, tool wrappers, skills, memory, context organization, control flow, and budget allocation. You must retain the `policy.solve(task, runtime)` entry point.
+Use the following interfaces for all operations: `runtime.ask(messages)` to query the model; `runtime.execute(code)` to execute the full program and generate renders; `runtime.select(step)` to choose a successful output; `runtime.remaining()` to check the remaining budget; and `runtime.image(path)` to construct image-based messages. All model calls and code executions must be routed through these interfaces.
+Constraints regarding the number of model calls, execution/rendering counts, and total time limits are externally defined; you may not bypass, increase, or alter these limits.
+The underlying geometric semantics, execution backend, model, data splits, and scoring formula for SceneAct are fixed and cannot be modified.
+Carefully examine the source code, per-scene scores, full `trajectory.jsonl` files, execution errors, and rendering history from previous candidates in the `archive`. The attached image displays a comparison between reference images and final renders for all scenes from the previous round, with scores provided for each row.
+Inspect the actual images—use `view_image` to open full-resolution renders and intermediate-step images rather than relying solely on file paths.
+Comprehensive evidence for all previously evaluated candidates can be accessed via `archive -> evidence -> scenes`.
+
+Do not force all historical data into the context; instead, retrieve information based on failure patterns. However, you must not replace the full archived trajectories with summaries.
+Scoring: For each scene, the score is calculated as `q = (clip(SSIM, 0, 1) + (1 - clip(LPIPS, 0, 1)) + (1 + clip(DINOv2 cosine, -1, 1)) / 2) / 3`.
+If a Blender project or a valid rendered PNG is missing, the score is zero. The development set consists of 100 fixed scenes; the final score is the average across all these scenes. Provide only RGB data; the model must estimate the camera parameters corresponding to the input viewpoint—the use of ground-truth camera parameters or depth information is prohibited.
+Reconstruct the scene using actual 3D geometry; it is forbidden to simulate the reconstruction by using input photographs as backgrounds, textures, or projections.
+
+Edit only the files located within `candidate_directories`. Do not modify `runtime`, `sceneact`, the evaluator, historical results, previously evaluated snapshots, or any other files. You must not access the test set, other viewpoints, ground-truth (GT) data, or results from other projects; furthermore, you may not hard-code answers based on the identity of a scene. You are not permitted to independently initiate evaluations, run other models, or employ external agents.
+All model invocations, tool inputs and outputs, inference processes, and rendering operations must be captured within the designated execution trace.
+Upon completion, return the two candidate names specified in `required_response` as a plain JSON object, maintaining their original order.

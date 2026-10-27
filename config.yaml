@@ -1,0 +1,59 @@
+dataset:
+  seed: 42
+  manifest: data/splits.json
+  sources:
+    scannet:
+      images: ${SCANNET_RGB_ROOT}
+      pattern: '*.jpg'
+      search: 50
+      final_test: 20
+    ca1m:
+      images: ${CA1M_RGB_ROOT}
+      pattern: image.png
+      search: 50
+      final_test: 20
+    arkitscenes:
+      images: ${ARKITSCENES_RGB_ROOT}
+      pattern: '*.png'
+      search: 0
+      final_test: 20
+model:
+  name: qwen3.8-27b
+  api_base: https://ap-southeast-1.maas.qwencloudapi.com/compatible-mode/v1
+  api_key_env: DASHSCOPE_API_KEY
+  reasoning_effort: xhigh
+  timeout: 600
+  parameters:
+    extra_body:
+      enable_thinking: true
+proposer:
+  model: gpt-6-astra
+  reasoning_effort: medium
+  api_base: https://api.openai.com/v1
+  api_key_env: OPENAI_API_KEY
+  timeout: 2400
+  command: codex
+  contact_sheet_size: 256
+  contact_sheet_rows: 5
+blender:
+  executable: blender
+  timeout: 600
+render:
+  engine: CYCLES
+  samples: 64
+  seed: 42
+  device: CPU
+budget:
+  model_calls: 20
+  executions: 12
+  seconds: 2400
+benchmark:
+  concurrency: 20
+metrics:
+  device: cpu
+  dino_model: facebook/dinov2-base
+  lpips_net: alex
+  timeout: 600
+evolution:
+  rounds: 30
+  proposals_per_round: 2

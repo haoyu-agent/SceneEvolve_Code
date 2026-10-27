@@ -1,0 +1,42 @@
+[
+  {
+    "id": "scannet/scene0000_00",
+    "dataset": "scannet",
+    "scene": "scene0000_00",
+    "group": "scene0000",
+    "image": "/path/to/scannet/scene0000_00/image.jpg",
+    "split": "search"
+  },
+  {
+    "id": "scannet/scene0001_00",
+    "dataset": "scannet",
+    "scene": "scene0001_00",
+    "group": "scene0001",
+    "image": "/path/to/scannet/scene0001_00/image.jpg",
+    "split": "final_test"
+  },
+  {
+    "id": "ca1m/example_scene_001",
+    "dataset": "ca1m",
+    "scene": "example_scene_001",
+    "group": "example_scene_001",
+    "image": "/path/to/ca1m/example_scene_001/image.png",
+    "split": "search"
+  },
+  {
+    "id": "ca1m/example_scene_002",
+    "dataset": "ca1m",
+    "scene": "example_scene_002",
+    "group": "example_scene_002",
+    "image": "/path/to/ca1m/example_scene_002/image.png",
+    "split": "final_test"
+  },
+  {
+    "id": "arkitscenes/example_scene_001",
+    "dataset": "arkitscenes",
+    "scene": "example_scene_001",
+    "group": "example_scene_001",
+    "image": "/path/to/arkitscenes/example_scene_001/image.png",
+    "split": "final_test"
+  }
+]
