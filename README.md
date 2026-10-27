@@ -3,7 +3,7 @@
 <p align="center">
   <a href="https://github.com/haoyu-agent/">Haoyu Yao</a><sup>1</sup>,
   <a href="https://chenguolin.github.io/">Chenguo Lin</a><sup>1,&dagger;</sup>,
-  <a href="https://github.com/drz123456789/">Ruize Du<sup>1</sup>,
+  <a href="https://github.com/drz123456789/">Ruize Du</a><sup>1</sup>,
   <a href="http://www.muyadong.com/">Yadong Mu</a><sup>1,&ddagger;</sup>
 </p>
 
