@@ -17,7 +17,7 @@
   <img src="asset/opening.png" width="100%" alt="SceneEvolve"/>
 </p>
 
-## Installation
+## 🔧 Installation
 
 Requires **Python 3.11+**, **Blender**, and **Codex CLI**. Run in the following commands:
 
@@ -36,7 +36,7 @@ export OPENAI_API_KEY="your-openai-api-key"
 
 Make sure `blender` and `codex` available on `PATH`, or set the path of `blender.executable` and `proposer.command` in `config.yaml`.
 
-## Data preparation
+## 📊 Data preparation
 
 Replace the placeholder image paths in [data/split.json](data/split.json) with absolute RGB image paths.
 
@@ -44,7 +44,7 @@ Each entry must contain the following fields: id, dataset, scene, group, image, 
 
 Save the completed manifest as `data/splits.json`, or update `dataset.manifest` in `config.yaml` to point to your own manifest.
 
-## Run
+## 🚀 Run
 
 ```bash
 # 1) check the datasets and settings.
@@ -54,7 +54,7 @@ python data.py --config config.yaml
 python sceneharness.py --config config.yaml --run-name experiment-01
 ```
 
-## Evaluation
+## 📍 Evaluation
 
 ```bash
 # 1) evaluate the experiment
