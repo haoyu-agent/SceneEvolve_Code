@@ -64,3 +64,17 @@ python sceneharness.py --run-name experiment-01 --test
 By default, each experiment runs for 30 rounds, with two proposals generated per round. Reuse the same run name to resume an existing run.
 
 Logs are stored in `logs/`, while scene projects, rendered outputs, and execution trajectories are stored in `jobs/`.
+
+## 📚 Citation
+If you find our work helpful, please consider citing:
+```bibtex
+@misc{yao2026learningcodeworldharness,
+      title={Learning to Code the World: Harness Evolution for Compositional 3D Reconstruction}, 
+      author={Haoyu Yao and Chenguo Lin and Ruize Du and Yadong Mu},
+      year={2026},
+      eprint={2610.37046},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2610.37046}, 
+}
+```
